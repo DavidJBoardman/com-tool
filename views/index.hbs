@@ -1,2 +1,10 @@
 <h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+
+ <ul class="collapsible" data-collapsible="accordion">
+   {{#each list}}
+       <li>
+         <div class="collapsible-header">{{this.title}}</div>
+         <div class="collapsible-body"><p>{{this.description}}</p></div>
+       </li>
+   {{/each}}
+</ul>
