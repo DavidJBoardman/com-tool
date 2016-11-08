@@ -1,5 +1,11 @@
 <h1>{{title}}</h1>
 
+<input id="newtitle" type="text" placeholder="title">
+ <textarea id="newdescription" placeholder="description" rows="4" cols="50"></textarea>
+ <button id="submit" class="btn" onclick="submit()">Submit</button>
+
+<br><br>
+
  <ul class="collapsible" data-collapsible="accordion">
    {{#each list}}
        <li>
