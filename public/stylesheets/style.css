@@ -6,3 +6,12 @@ body {
 a {
   color: #00B7FF;
 }
+
+.collapsible-header {
+  padding-top: 10px;
+}
+
+.input-field {
+  display: inline-block;
+  width: 20%;
+}

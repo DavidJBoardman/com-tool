@@ -1,15 +1,50 @@
 <h1>{{title}}</h1>
 
-<input id="newtitle" type="text" placeholder="title">
- <textarea id="newdescription" placeholder="description" rows="4" cols="50"></textarea>
- <button id="submit" class="btn" onclick="submit()">Submit</button>
+<p>Add a word to the dictionary</p>
+<input id="newtitle" type="text" placeholder="Enter a word">
+<p>Add a sentence</p>
+<textarea id="newdescription" placeholder="Enter a phrase" rows="4" cols="50"></textarea>
+<button id="submit" class="btn" onclick="submit()">Submit</button>
 
 <br><br>
 
+<div class="input-field col s12 m6">
+  <select>
+    <option value="" disabled selected>Choose your option</option>
+    {{#each list}}
+    <option value="{{this.pk_id}}">{{this.description}}</option>
+    {{/each}}
+  </select>
+</div>
+
+<div class="input-field col s12 m6">
+  <select>
+    <option value="" disabled selected>Choose your option</option>
+    {{#each list}}
+    <option value="{{this.pk_id}}">{{this.title}}</option>
+    {{/each}}
+  </select>
+</div>
+
+
+
+<br><br><br><br><br>
  <ul class="collapsible" data-collapsible="accordion">
    {{#each list}}
        <li>
-         <div class="collapsible-header">{{this.title}}</div>
+         <div class="collapsible-header">
+           <button class="btn right" onclick="deleteitem({{this.pk_id}})">Delete</button>
+           {{#if this.done}}
+             <input type="checkbox" id="{{this.pk_id}}" checked="checked">
+             <label for="{{this.pk_id}}" onclick="update({{this.pk_id}}, {{this.done}})"></label>
+             <strike>{{this.title}}</strike>
+           {{else}}
+             <input type="checkbox" id="{{this.pk_id}}">
+             <label for="{{this.pk_id}}" onclick="update({{this.pk_id}}, {{this.done}})"></label>
+             {{this.title}}
+          {{/if}}
+         </div>
+
          <div class="collapsible-body"><p>{{this.description}}</p></div>
        </li>
    {{/each}}
