@@ -1,0 +1,1 @@
+This is a tool to aid people with speech impairments. I created this to be used within a healthcare setting to enable patients and service users to communicate their needs in order for them to receive the best patient centered care possible.  
