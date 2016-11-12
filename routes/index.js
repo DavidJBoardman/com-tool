@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
 pg.connect(process.env.DATABASE_URL, function(err, client) {
   if (err) throw err;
   client
-    .query('SELECT * FROM todo ORDER BY pk_id ASC')
+    .query('SELECT * FROM sentences ORDER BY pk_id ASC')
     .on('row', function(row) {
       results.push(row);
     })
@@ -27,31 +27,31 @@ router.post('/insert', function(req, res) {
   pg.connect(process.env.DATABASE_URL, function(err, client) {
     if (err) throw err;
     client
-      .query('INSERT INTO todo (title, description) VALUES ($1, $2)', [req.body.title, req.body.description])
+      .query('INSERT INTO sentences (title, sentence) VALUES ($1, $2)', [req.body.title, req.body.sentence])
       .on('end', function(){
         res.send('success');
       });
   });
 });
 
-//delete a todo item
+//Delete an item
 router.post('/delete', function(req, res) {
    pg.connect(process.env.DATABASE_URL, function(err, client) {
       if (err) throw err;
       client
-        .query('DELETE FROM todo WHERE pk_id='+req.body.id)
+        .query('DELETE FROM sentences WHERE pk_id='+req.body.id)
         .on('end', function(){
           res.send('success');
         });
    });
 });
 
-//update an item
+//Update an item
 router.post('/update', function(req, res) {
    pg.connect(process.env.DATABASE_URL, function(err, client) {
       if (err) throw err;
       client
-        .query('UPDATE todo SET done='+req.body.done+' WHERE pk_id='+req.body.id)
+        .query('UPDATE sentences SET done='+req.body.done+' WHERE pk_id='+req.body.id)
         .on('end', function(){
           res.send('success');
         });
