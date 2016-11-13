@@ -4,7 +4,7 @@ $(document).ready(function() {
 
 function submit(){
 
-   var title = $('#newtitle').val();
+   var word = $('#newword').val();
    var description = $('#newdescription').val();
 
    //$.post(url, data, callback)
@@ -12,6 +12,7 @@ function submit(){
      location.reload(true);
    });
 }
+
 
 function deleteitem(id){
    //$.post(url, data, callback)

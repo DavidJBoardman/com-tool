@@ -27,14 +27,15 @@ router.post('/insert', function(req, res) {
   pg.connect(process.env.DATABASE_URL, function(err, client) {
     if (err) throw err;
     client
-      .query('INSERT INTO todo (title, description) VALUES ($1, $2)', [req.body.title, req.body.description])
+      .query('INSERT INTO todo (title, description) VALUES ($2)', [req.body.title])
       .on('end', function(){
         res.send('success');
       });
   });
 });
 
-//delete a todo item
+
+//Delete an item
 router.post('/delete', function(req, res) {
    pg.connect(process.env.DATABASE_URL, function(err, client) {
       if (err) throw err;
@@ -46,7 +47,7 @@ router.post('/delete', function(req, res) {
    });
 });
 
-//update an item
+//Update an item
 router.post('/update', function(req, res) {
    pg.connect(process.env.DATABASE_URL, function(err, client) {
       if (err) throw err;

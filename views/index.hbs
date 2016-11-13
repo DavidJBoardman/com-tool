@@ -12,7 +12,7 @@
   <select>
     <option value="" disabled selected>Choose your option</option>
     {{#each list}}
-    <option value="{{this.pk_id}}">{{this.description}}</option>
+    <option value="{{this.pk_id}}">{{this.sentence}}</option>
     {{/each}}
   </select>
 </div>
@@ -21,7 +21,7 @@
   <select>
     <option value="" disabled selected>Choose your option</option>
     {{#each list}}
-    <option value="{{this.pk_id}}">{{this.title}}</option>
+    <option value="{{this.pk_word}}">{{this.word}}</option>
     {{/each}}
   </select>
 </div>
@@ -37,7 +37,7 @@
            {{#if this.done}}
              <input type="checkbox" id="{{this.pk_id}}" checked="checked">
              <label for="{{this.pk_id}}" onclick="update({{this.pk_id}}, {{this.done}})"></label>
-             <strike>{{this.title}}</strike>
+             <strike>{{this.word}}</strike>
            {{else}}
              <input type="checkbox" id="{{this.pk_id}}">
              <label for="{{this.pk_id}}" onclick="update({{this.pk_id}}, {{this.done}})"></label>
@@ -45,7 +45,7 @@
           {{/if}}
          </div>
 
-         <div class="collapsible-body"><p>{{this.description}}</p></div>
+         <div class="collapsible-body"><p>{{this.sentence}}</p></div>
        </li>
    {{/each}}
 </ul>
