@@ -22,12 +22,24 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
 
 });
 
-//post /insert
-router.post('/insert', function(req, res) {
+//post /insertWord
+router.post('/insertWord', function(req, res) {
   pg.connect(process.env.DATABASE_URL, function(err, client) {
     if (err) throw err;
     client
-      .query('INSERT INTO sentences (title, sentence) VALUES ($1, $2)', [req.body.title, req.body.sentence])
+      .query('INSERT INTO word (word) VALUES ($2)', [req.body.title])
+      .on('end', function(){
+        res.send('success');
+      });
+  });
+});
+
+//post /insertSentence
+router.post('/insertSentence', function(req, res) {
+  pg.connect(process.env.DATABASE_URL, function(err, client) {
+    if (err) throw err;
+    client
+      .query('INSERT INTO sentences (sentence) VALUES ($2)', [req.body.sentence])
       .on('end', function(){
         res.send('success');
       });

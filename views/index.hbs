@@ -2,10 +2,10 @@
 
 <p>Add a word to the dictionary</p>
 <input id="newtitle" type="text" placeholder="Enter a word">
-<button id="submitTitle" class="btn" onclick="submit()">Submit</button>
+<button id="submitword" class="btn" onclick="submitWord()">Submit</button>
 <p>Add a sentence</p>
 <textarea id="newsentence" placeholder="Enter a phrase" rows="4" cols="50"></textarea>
-<button id="submitSentence" class="btn" onclick="submit()">Submit</button>
+<button id="submitSentence" class="btn" onclick="submitSentence()">Submit</button>
 
 <br><br>
 
@@ -13,7 +13,7 @@
   <select>
     <option value="" disabled selected>Choose your option</option>
     {{#each list}}
-    <option value="{{this.pk_id}}">{{this.description}}</option>
+    <option value="{{this.pk_id}}">{{this.sentence}}</option>
     {{/each}}
   </select>
 </div>
@@ -22,7 +22,7 @@
   <select>
     <option value="" disabled selected>Choose your option</option>
     {{#each list}}
-    <option value="{{this.pk_id}}">{{this.title}}</option>
+    <option value="{{this.pk_word}}">{{this.word}}</option>
     {{/each}}
   </select>
 </div>
@@ -37,16 +37,16 @@
            <button class="btn right" onclick="deleteitem({{this.pk_id}})">Delete</button>
            {{#if this.done}}
              <input type="checkbox" id="{{this.pk_id}}" checked="checked">
-             <label for="{{this.pk_id}}" onclick="update({{this.pk_id}}, {{this.done}})"></label>
-             <strike>{{this.title}}</strike>
+             <label for="{{this.pk_word}}" onclick="update({{this.pk_word}}, {{this.done}})"></label>
+             <strike>{{this.word}}</strike>
            {{else}}
              <input type="checkbox" id="{{this.pk_id}}">
-             <label for="{{this.pk_id}}" onclick="update({{this.pk_id}}, {{this.done}})"></label>
+             <label for="{{this.pk_word}}" onclick="update({{this.pk_word}}, {{this.done}})"></label>
              {{this.title}}
           {{/if}}
          </div>
 
-         <div class="collapsible-body"><p>{{this.description}}</p></div>
+         <div class="collapsible-body"><p>{{this.sentence}}</p></div>
        </li>
    {{/each}}
 </ul>

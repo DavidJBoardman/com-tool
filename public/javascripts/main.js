@@ -2,12 +2,12 @@ $(document).ready(function() {
   $('select').material_select();
 });
 
-function submitTitle(){
+function submitWord(){
 
-   var title = $('#newtitle').val();
+   var word = $('#newword').val();
 
    //$.post(url, data, callback)
-   $.post('/insert', {title: title}, function(){
+   $.post('/insertWord', {word: word}, function(){
      location.reload(true);
    });
 }
@@ -17,7 +17,7 @@ function submitSentence(){
    var sentence = $('#newsentence').val();
 
    //$.post(url, data, callback)
-   $.post('/insert', {sentence: sentence}, function(){
+   $.post('/insertSentence', {sentence: sentence}, function(){
      location.reload(true);
    });
 }
