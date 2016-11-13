@@ -16,7 +16,7 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
       results.push(row);
     })
     .on('end', function(){
-      res.render('index', { list: results, title: 'Communication Tool' });
+      res.render('index', { list: results, title: 'Communication Tool', option: 'Choose a word/phrase' });
     });
 });
 
@@ -27,7 +27,7 @@ router.post('/insert', function(req, res) {
   pg.connect(process.env.DATABASE_URL, function(err, client) {
     if (err) throw err;
     client
-      .query('INSERT INTO todo (title, description) VALUES ($2)', [req.body.title])
+      .query('INSERT INTO todo (title, description) VALUES ($1, $2)', [req.body.title, req.body.description])
       .on('end', function(){
         res.send('success');
       });
@@ -47,7 +47,7 @@ router.post('/delete', function(req, res) {
    });
 });
 
-//Update an item
+//update an item
 router.post('/update', function(req, res) {
    pg.connect(process.env.DATABASE_URL, function(err, client) {
       if (err) throw err;

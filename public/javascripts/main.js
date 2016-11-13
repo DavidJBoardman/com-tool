@@ -1,10 +1,12 @@
 $(document).ready(function() {
   $('select').material_select();
+  // Initialize collapse button
+  $(".button-collapse").sideNav();
 });
 
 function submit(){
 
-   var word = $('#newword').val();
+   var title = $('#newtitle').val();
    var description = $('#newdescription').val();
 
    //$.post(url, data, callback)

@@ -1,51 +1,84 @@
-<h1>{{title}}</h1>
-
-<p>Add a word to the dictionary</p>
-<input id="newtitle" type="text" placeholder="Enter a word">
-<p>Add a sentence</p>
-<textarea id="newdescription" placeholder="Enter a phrase" rows="4" cols="50"></textarea>
-<button id="submit" class="btn" onclick="submit()">Submit</button>
-
-<br><br>
-
-<div class="input-field col s12 m6">
-  <select>
-    <option value="" disabled selected>Choose your option</option>
-    {{#each list}}
-    <option value="{{this.pk_id}}">{{this.sentence}}</option>
-    {{/each}}
-  </select>
-</div>
-
-<div class="input-field col s12 m6">
-  <select>
-    <option value="" disabled selected>Choose your option</option>
-    {{#each list}}
-    <option value="{{this.pk_word}}">{{this.word}}</option>
-    {{/each}}
-  </select>
+<div class="header">
+  <h1>{{title}}</h1>
 </div>
 
 
 
-<br><br><br><br><br>
- <ul class="collapsible" data-collapsible="accordion">
-   {{#each list}}
-       <li>
-         <div class="collapsible-header">
-           <button class="btn right" onclick="deleteitem({{this.pk_id}})">Delete</button>
-           {{#if this.done}}
-             <input type="checkbox" id="{{this.pk_id}}" checked="checked">
-             <label for="{{this.pk_id}}" onclick="update({{this.pk_id}}, {{this.done}})"></label>
-             <strike>{{this.word}}</strike>
-           {{else}}
-             <input type="checkbox" id="{{this.pk_id}}">
-             <label for="{{this.pk_id}}" onclick="update({{this.pk_id}}, {{this.done}})"></label>
-             {{this.title}}
-          {{/if}}
-         </div>
+<ul id="slide-out" class="side-nav">
+  <li><h3>Add to the dictionary</h3></li>
+  <li><p>Add a word or phrase</p></li>
+  <li><input class="nav-text" id="newtitle" type="text" placeholder="Enter a word"></li>
+  <!-- <li><p>Add a sentence</p></li> -->
+  <!-- <li><input class="nav-text" id="newdescription" placeholder="Enter a sentence"></li> -->
+  <li><button id="submit" class="waves-effect waves-light btn" onclick="submit()">Submit</button></li>
 
-         <div class="collapsible-body"><p>{{this.sentence}}</p></div>
-       </li>
-   {{/each}}
-</ul>
+  <br>
+  <li><p>Delete a word/phrase</p></li>
+  <ul class="">
+     {{#each list}}
+         <li>
+           <div class="collapsible-header">
+             <button class="btn right" onclick="deleteitem({{this.pk_id}})">Delete</button>
+             {{#if this.done}}
+               <label for="{{this.pk_id}}" onclick="update({{this.pk_id}}, {{this.done}})"></label>
+             {{else}}
+               <label for="{{this.pk_id}}" onclick="update({{this.pk_id}}, {{this.done}})"></label>
+               {{this.title}}
+            {{/if}}
+           </div>
+
+           <div class="collapsible-body"><p>{{this.description}}</p></div>
+         </li>
+     {{/each}}
+  </ul>
+
+  </ul>
+
+<div class="main_body">
+  <a href="#" data-activates="slide-out" class="button-collapse btn waves-effect waves-light"><i class="material-icons">menu</i></a>
+
+  <br><br>
+  <div class="choice_body">
+    <div class="input-field col s12 m6">
+      <select>
+        <option value="" disabled selected>Choose a word/phrase</option>
+        {{#each list}}
+        <option value="{{this.pk_id}}">{{this.title}}</option>
+        {{/each}}
+      </select>
+    </div>
+
+    <div class="input-field col s12 m6">
+      <select>
+        <option value="" disabled selected>{{option}}</option>
+        {{#each list}}
+        <option value="{{this.pk_id}}">{{this.title}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div class="input-field col s12 m6">
+      <select>
+        <option value="" disabled selected>{{option}}</option>
+        {{#each list}}
+        <option value="{{this.pk_id}}">{{this.title}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div class="input-field col s12 m6">
+      <select>
+        <option value="" disabled selected>{{option}}</option>
+        {{#each list}}
+        <option value="{{this.pk_id}}">{{this.title}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div class="input-field col s12 m6">
+      <select>
+        <option value="" disabled selected>{{option}}</option>
+        {{#each list}}
+        <option value="{{this.pk_id}}">{{this.title}}</option>
+        {{/each}}
+      </select>
+    </div>
+  </div>
+</div>
