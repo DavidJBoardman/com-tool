@@ -16,7 +16,7 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
       results.push(row);
     })
     .on('end', function(){
-      res.render('index', { list: results, title: 'Communication Tool', option: 'Choose a word/phrase' });
+      res.render('index', { list: results, title: 'Communication Tool', option: 'Choose a word/phrase', description: 'Form a sentence using the menu below' });
     });
 });
 

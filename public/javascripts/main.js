@@ -24,17 +24,6 @@ function deleteitem(id){
 }
 
 
-function update(id, done){
-   var checkboxes = $('input[type=checkbox]');
-   for (var i=0; i<checkboxes.length; i++){
-     checkboxes[i].setAttribute("disabled", "disabled");
-   }
-   //$.post(url, data, callback)
-   $.post('/update', {id: id, done: !done}, function(){
-     location.reload(true);
-   });
-}
-
 //Update dropdown box name
 function txtUpdate(id){
   $('')
