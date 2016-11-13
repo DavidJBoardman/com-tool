@@ -24,6 +24,22 @@ function deleteitem(id){
 }
 
 
+// list sort
+var mylist = $('.savedWords');
+var listitems = mylist.children('li').get();
+listitems.sort(function(a, b) {
+   return $(a).text().toUpperCase().localeCompare($(b).text().toUpperCase());
+})
+$.each(listitems, function(idx, itm) { mylist.append(itm); });
+
+// dropdown sort
+var mylist = $('.savedWords');
+var listitems = mylist.children('li').get();
+listitems.sort(function(a, b) {
+   return $(a).text().toUpperCase().localeCompare($(b).text().toUpperCase());
+})
+$.each(listitems, function(idx, itm) { mylist.append(itm); });
+
 //Update dropdown box name
 function txtUpdate(id){
   $('')

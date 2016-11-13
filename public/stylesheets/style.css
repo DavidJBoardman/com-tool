@@ -29,7 +29,7 @@ a {
   padding: 10px;
   text-align: center;
 }
-#savedWords {
+.savedWords li {
   padding: 10px;
 }
 .nav-text {

@@ -7,7 +7,6 @@
 <!-- Side pane which is where you add new items to the database. -->
 <ul id="slide-out" class="side-nav">
   <li><h3>Add to the dictionary</h3></li>
-  <li><p>Add a word or phrase</p></li>
   <li><input class="nav-text" id="newtitle" type="text" placeholder="Enter a word"></li>
   <!-- <li><p>Add a sentence</p></li> -->
   <!-- <li><input class="nav-text" id="newdescription" placeholder="Enter a sentence"></li> -->
@@ -16,19 +15,20 @@
   <br>
 
   <!-- Area for deleting and listing and saved items in the databse -->
-  <li><p>Delete a word/phrase</p></li>
-  <ul id="savedWords">
-     {{#each list}}
-         <li>
-             <button class="btn right" onclick="deleteitem({{this.pk_id}})">Delete</button>
-             {{#if this.done}}
-               <label for="{{this.pk_id}}" onclick="update({{this.pk_id}}, {{this.done}})"></label>
-             {{else}}
-               <label for="{{this.pk_id}}" onclick="update({{this.pk_id}}, {{this.done}})"></label>
-               {{this.title}}
-            {{/if}}
-         </li>
-     {{/each}}
+  <li><h5>Delete a word/phrase</h5></li>
+  <ul class="savedWords">
+    {{#each list}}
+    <li>
+      <button class="btn right" onclick="deleteitem({{this.pk_id}})">Delete</button>
+      {{#if this.done}}
+      <label for="{{this.pk_id}}" onclick="update({{this.pk_id}}, {{this.done}})"></label>
+      {{else}}
+      <label for="{{this.pk_id}}" onclick="update({{this.pk_id}}, {{this.done}})"></label>
+      {{this.title}}
+      {{/if}}
+      <hr>
+    </li>
+    {{/each}}
   </ul>
 </ul>
 
@@ -42,11 +42,12 @@
   <div class="choice_body row">
     <div class="hoverable input-field col m4 l2">
       <select>
-        <option value="" disabled selected>{{option}}</option>
-        {{#each list}}
-        <option value="{{this.pk_id}}">{{this.title}}</option>
-        <li class="divider"></li>
-        {{/each}}
+        <ul class="savedWords">
+          <option value="" disabled selected>{{option}}</option>
+          {{#each list}}
+          <li><option value="{{this.pk_id}}">{{this.title}}</option></li>
+          {{/each}}
+        </ul>
       </select>
     </div>
     <div class="hoverable input-field col m4 l2">
@@ -63,7 +64,6 @@
         <option value="" disabled selected></option>
         {{#each list}}
         <option value="{{this.pk_id}}">{{this.title}}</option>
-        <li class="divider"></li>
         {{/each}}
       </select>
     </div>
@@ -72,7 +72,6 @@
         <option value="" disabled selected></option>
         {{#each list}}
         <option value="{{this.pk_id}}">{{this.title}}</option>
-        <li class="divider"></li>
         {{/each}}
       </select>
     </div>
@@ -81,7 +80,6 @@
         <option value="" disabled selected></option>
         {{#each list}}
         <option value="{{this.pk_id}}">{{this.title}}</option>
-        <li class="divider"></li>
         {{/each}}
       </select>
     </div>
@@ -90,7 +88,6 @@
         <option value="" disabled selected></option>
         {{#each list}}
         <option value="{{this.pk_id}}">{{this.title}}</option>
-        <li class="divider"></li>
         {{/each}}
       </select>
     </div>
