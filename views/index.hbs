@@ -38,8 +38,8 @@
   <a href="#" data-activates="slide-out" class="button-collapse btn waves-effect waves-light"><i class="material-icons">menu</i></a>
 
   <br><br>
-  <div class="choice_body">
-    <div class="input-field col s12 m6">
+  <div class="choice_body row">
+    <div class="input-field col s2">
       <select>
         <option value="" disabled selected>Choose a word/phrase</option>
         {{#each list}}
@@ -47,8 +47,7 @@
         {{/each}}
       </select>
     </div>
-
-    <div class="input-field col s12 m6">
+    <div class="input-field col s2">
       <select>
         <option value="" disabled selected>{{option}}</option>
         {{#each list}}
@@ -56,7 +55,7 @@
         {{/each}}
       </select>
     </div>
-    <div class="input-field col s12 m6">
+    <div class="input-field col s2">
       <select>
         <option value="" disabled selected>{{option}}</option>
         {{#each list}}
@@ -64,7 +63,7 @@
         {{/each}}
       </select>
     </div>
-    <div class="input-field col s12 m6">
+    <div class="input-field col s2">
       <select>
         <option value="" disabled selected>{{option}}</option>
         {{#each list}}
@@ -72,7 +71,15 @@
         {{/each}}
       </select>
     </div>
-    <div class="input-field col s12 m6">
+    <div class="input-field col s2">
+      <select>
+        <option value="" disabled selected>{{option}}</option>
+        {{#each list}}
+        <option value="{{this.pk_id}}">{{this.title}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div class="input-field col s2">
       <select>
         <option value="" disabled selected>{{option}}</option>
         {{#each list}}
